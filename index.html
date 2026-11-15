@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#102b4e" />
+  <title>HUEIC | Quản lý phòng thực hành</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="login-screen" class="login-screen">
+    <div class="login-panel">
+      <div class="brand-mark large">H</div>
+      <p class="eyebrow">HUEIC COLLEGE</p>
+      <h1>Hệ thống quản lý<br><span>phòng thực hành</span></h1>
+      <p class="muted login-intro">Không gian quản trị thiết bị, sự cố và lịch sử dụng phòng thực hành.</p>
+      <form id="login-form" class="login-form">
+        <label>Tài khoản<input id="login-username" autocomplete="username" value="admin" required /></label>
+        <label>Mật khẩu<input id="login-password" type="password" autocomplete="current-password" value="hueic123" required /></label>
+        <p id="login-error" class="form-error"></p>
+        <button class="btn primary full" type="submit">Đăng nhập <span>→</span></button>
+      </form>
+      <div class="demo-logins">
+        <div class="section-label">TÀI KHOẢN DÙNG THỬ</div>
+        <div class="demo-grid">
+          <button type="button" data-demo-login="admin">Quản trị viên</button>
+          <button type="button" data-demo-login="manager">Cán bộ quản lý</button>
+          <button type="button" data-demo-login="technician">Kỹ thuật viên</button>
+          <button type="button" data-demo-login="lecturer_in_charge">GV phụ trách</button>
+          <button type="button" data-demo-login="lecturer">Giảng viên</button>
+        </div>
+        <small>Mật khẩu mẫu cho tất cả tài khoản: <b>hueic123</b></small>
+      </div>
+      <p class="login-foot">BẢN DEMO • DỮ LIỆU LƯU TRÊN TRÌNH DUYỆT</p>
+    </div>
+    <div class="login-art">
+      <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+      <div class="art-content">
+        <div class="art-chip">CAMPUS • LAB • TECHNOLOGY</div>
+        <h2>Quản lý thông minh.<br><em>Vận hành chủ động.</em></h2>
+        <p>Kiểm soát thiết bị và chất lượng phòng thực hành trong một không gian thống nhất.</p>
+        <div class="art-stats"><div><strong>08</strong><span>Phòng mẫu</span></div><div><strong>149</strong><span>Máy tính mẫu</span></div><div><strong>24/7</strong><span>Theo dõi dữ liệu</span></div></div>
+      </div>
+      <div class="art-bottom">HUEIC COLLEGE LAB MANAGEMENT SYSTEM <span>2026</span></div>
+    </div>
+  </div>
+
+  <div id="app" class="app-shell hidden">
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-brand"><div class="brand-mark">H</div><div><b>HUEIC</b><small>LAB MANAGEMENT</small></div><button id="sidebar-close" class="icon-btn mobile-only" aria-label="Đóng menu">×</button></div>
+      <div class="sidebar-caption">KHÔNG GIAN QUẢN TRỊ</div>
+      <nav id="main-nav" class="main-nav">
+        <button class="nav-item active" data-page="dashboard"><span class="nav-icon">▦</span><span>Tổng quan</span></button>
+        <div class="nav-group-label">QUẢN LÝ TÀI NGUYÊN</div>
+        <button class="nav-item" data-page="rooms"><span class="nav-icon">▤</span><span>Phòng thực hành</span><span class="nav-count" id="nav-room-count">08</span></button>
+        <button class="nav-item" data-page="devices"><span class="nav-icon">▣</span><span>Thiết bị máy tính</span></button>
+        <button class="nav-item" data-page="incidents"><span class="nav-icon">⚑</span><span>Sự cố & sửa chữa</span><span class="nav-alert" id="nav-incident-count">0</span></button>
+        <button class="nav-item" data-page="maintenance"><span class="nav-icon">⚙</span><span>Kế hoạch bảo trì</span></button>
+        <button class="nav-item" data-page="schedules"><span class="nav-icon">▦</span><span>Lịch sử dụng phòng</span></button>
+        <div class="nav-group-label">PHÂN TÍCH & HỆ THỐNG</div>
+        <button class="nav-item" data-page="reports" data-manager-only="true"><span class="nav-icon">▥</span><span>Báo cáo thống kê</span></button>
+        <button class="nav-item" data-page="accounts" data-admin-only="true"><span class="nav-icon">♙</span><span>Tài khoản & nhật ký</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-help"><div class="help-icon">?</div><div><b>Trung tâm hỗ trợ</b><small>Hướng dẫn sử dụng hệ thống</small></div><span>↗</span></div>
+        <div class="sidebar-version"><span class="status-dot"></span> Phiên bản demo 1.0 <span>•</span> 2026</div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="topbar-left"><button id="menu-toggle" class="icon-btn menu-toggle" aria-label="Mở menu">☰</button><div class="breadcrumb"><span>HUEIC</span><b>/</b><strong id="breadcrumb-current">Tổng quan</strong></div></div>
+        <div class="topbar-right">
+          <div class="date-display"><span class="date-icon">◷</span><span id="current-date"></span></div>
+          <button class="icon-btn notification-btn" id="notification-btn" aria-label="Thông báo">♧<i></i></button>
+          <div class="profile-wrap"><button id="profile-button" class="profile-button"><div class="avatar" id="profile-avatar">AD</div><div class="profile-meta"><b id="profile-name">Quản trị viên</b><small id="profile-role">Quản trị hệ thống</small></div><span class="chevron">⌄</span></button><div id="profile-menu" class="profile-menu hidden"><button id="switch-account">Đổi tài khoản demo</button><button id="logout-button">Đăng xuất</button></div></div>
+        </div>
+      </header>
+      <div class="content-wrap"><div id="page-content"></div></div>
+      <footer class="app-footer"><span>© 2026 HUEIC COLLEGE • HỆ THỐNG QUẢN LÝ PHÒNG THỰC HÀNH</span><span>Được thiết kế cho vận hành nội bộ</span></footer>
+    </main>
+  </div>
+
+  <div id="modal-root"></div>
+  <div id="toast-root" class="toast-root"></div>
+  <input id="csv-import-input" type="file" accept=".csv,text/csv" hidden />
+  <input id="backup-import-input" type="file" accept=".json,application/json" hidden />
+  <script src="app.js"></script>
+</body>
+</html>
